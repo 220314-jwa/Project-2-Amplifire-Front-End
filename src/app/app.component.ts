@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Users } from './models/users';
+import { User } from './models/user';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -7,17 +7,21 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'Global Library';
-  loggedInUser:Users;
+export class AppComponent {
+  title = 'Library';
+  loggedInUser: User;
 
-  constructor(private userServ:UserService) {}
-
-  ngOnInit(): void {
-    this.getLoggedInUser();
+  constructor(private userServ: UserService) {
+    this.loggedInUser = new User(1, "", "", "", "", []);
   }
 
- async getLoggedInUser() {
-   this.loggedInUser = await this.userServ.checkLogin();
- }
+   ngOnInit(): void {
+     this.getLoggedInUser();
+   }
+
+  async getLoggedInUser() {
+    let obj = await this.userServ.checkLogin();
+    if (obj != null) this.loggedInUser = obj;
+  }
+
 }

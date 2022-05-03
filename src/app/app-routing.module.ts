@@ -1,23 +1,30 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component'
-import { UsersComponent } from './users/users.component';
-import { LibraryComponent } from './book/book.component';
+import { HomeComponent } from './components/home/home.component';
+import { MyBooksComponent } from './components/my-books/my-books.component';
+import { BooksComponent } from './components/books/books.component';
 
-  const routes: Routes = [
-    {path: 'login', component: LoginComponent },
-
-    {path: 'mybooks', component: UsersComponent },
-
-    {path: 'library', component: LibraryComponent}
-  ]
-
-
+const routes: Routes = [
+  {
+    path:'',
+    component:HomeComponent
+  },
+  {
+    path:'home',
+    component:HomeComponent
+  },
+  {
+    path:'books',
+    component:BooksComponent
+  },
+  {
+    path:'mybooks',
+    component:MyBooksComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-   exports: [RouterModule]
-  
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

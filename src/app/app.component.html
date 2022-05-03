@@ -1,18 +1,13 @@
-<!-- Home Page -->
-
 <body>
-    <h1>{{title}}</h1> <!--interpolation binding-->
-    <nav> 
-        <a routerLink="login">Login</a>
-        <a routerLink="library">Available Books</a>
-        
-        <a routerLink="mybooks" *ngI="loggedInUser">My Books</a>
-        <app-login (loginOrLogout)="getLoggedInUser()"></app-login>
-    </nav> 
+  <h1>{{title}}</h1> <!--interpolation binding-->
+  <nav class="section"> 
+    <a routerlink="home">LibraryApp></a>
+      <a routerLink="library">Available Books</a>
+      
+      <a routerLink="mybooks" *ngIf="loggedInUser">My Books</a>
+     <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
+  </nav> 
 
-    <form>
-
-    </form>
 
 </body>
 <router-outlet></router-outlet>

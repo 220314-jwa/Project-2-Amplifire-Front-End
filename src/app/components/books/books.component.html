@@ -1,0 +1,16 @@
+<main class="section">
+    <h1>Available Books</h1>
+    <p *ngIf="!loggedInUser">Log in to checkout books!</p>
+    <div>
+        <label for="bookSearch">Search Books: </label>
+        <input [(ngModel)]="bookSearchText" type="text" id="bookSearch">
+    </div>
+     <div class="books" *ngIf="book && book.length>0; else noBooks">
+        the pet component has @Input pet field to allow us to pass each pet
+        into it. see the pet component for details 
+        <app-book *ngFor="let eachBook of book | bookSearch:bookSearchText" [book]="eachBook"></app-book>
+    </div> 
+    <ng-template #noBooks>
+        <p>There are no books available right now, check again later!</p>
+    </ng-template>
+</main>
