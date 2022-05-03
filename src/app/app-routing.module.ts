@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component'
 import { UsersComponent } from './users/users.component';
-import { LibraryComponent } from './library/library.component';
+import { LibraryComponent } from './book/book.component';
 
   const routes: Routes = [
     {path: 'login', component: LoginComponent },

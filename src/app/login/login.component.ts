@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Users } from '../models/users';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  constructor() { }
+ credentials = {
+    username:'',
+    password:''
+  };
+   loggedInUser: any;
+  // creating a custom event on this component
+  @Output() loginOrLogout: EventEmitter<any> = new EventEmitter();
+
+  constructor(private userServ: UserService) { }
 
   ngOnInit(): void {
+    this.getLoggedInUser();
   }
+  async getLoggedInUser() {
+    this.loggedInUser = await this.userServ.checkLogin();
+  }
+
+  async logIn(): Promise<void> {
+    this.loggedInUser = await this.userServ.logIn(this.credentials);
+    // fires the custom event
+    this.loginOrLogout.emit();
+  }
+
+  logOut(): void {
+    sessionStorage.removeItem('Auth-Token');
+    this.loggedInUser=null;
+    // firing the custom event
+    this.loginOrLogout.emit();
+  }
+
 
 }

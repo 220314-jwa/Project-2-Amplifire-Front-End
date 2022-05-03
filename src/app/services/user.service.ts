@@ -15,9 +15,9 @@ export class UserService {
     let httpResp = await fetch(this.url + 'users/' + userId);
     if (httpResp && httpResp.status === 200) {
         return await httpResp.json();
-    } else {
-      return null;
-    }
+     } else {
+        return Users;
+     }
   }
 
   async logIn(credentials:any): Promise<Users> {

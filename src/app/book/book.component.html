@@ -1,0 +1,6 @@
+<div>
+    <!-- {{ dateExample | date:'shortDate' }} -->
+    <h2>{{ book.title | uppercase }}</h2>
+    <p>{{ book.description }}</p>
+    <button *ngIf="book.status==='Available' && loggedInUser" (click)="checkout()">Checkout</button>
+</div>
