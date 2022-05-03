@@ -6,7 +6,8 @@
         <a routerLink="login">Login</a>
         <a routerLink="library">Available Books</a>
         
-        <a routerLink="mybooks">My Books</a>
+        <a routerLink="mybooks" *ngI="loggedInUser">My Books</a>
+        <app-login (loginOrLogout)="getLoggedInUser()"></app-login>
     </nav> 
 
     <form>
@@ -14,5 +15,4 @@
     </form>
 
 </body>
-<app-login></app-login>
 <router-outlet></router-outlet>

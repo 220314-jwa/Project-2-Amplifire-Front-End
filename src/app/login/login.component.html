@@ -1,17 +1,15 @@
-<!-- User is able to login with username and password -->
-
-
-    <title>LoginPagePJ2</title>
-
-<body id="LP1">
-    <h1 id="LP2">Welcome to our Global Library</h1>
-    <form id="LP3"> 
-        <label for="username">Username</label>
-        <input id="username" type="text" value="username">
-        <br>
-        <label for="password">Password</label>
-        <input id="password" type="text" value="password">
-        <button>Submit</button>
-        
-    </form>
-</body>
+<ng-container *ngIf="!loggedInUser; else logout">
+    <div>
+        <label for="usernameInput">Username: </label>
+        <input [(ngModel)]="credentials.username" type="text" id="usernameInput">
+        <label for="passwordInput">Password: </label>
+        <input [(ngModel)]="credentials.password" type="password" id="passwordInput"> 
+        <button (click)="logIn()" type="button" id="logInBtn">Log In</button>
+    </div>
+</ng-container>
+<ng-template #logout>
+    <div>
+        {{ loggedInUser.firstName }}
+        <button (click)="logOut()" type="button" id="logOutBtn">Log Out</button>
+    </div>
+</ng-template>
