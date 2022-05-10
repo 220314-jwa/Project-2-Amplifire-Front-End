@@ -11,6 +11,9 @@ import { User } from '../models/user';
 })
 export class BookService {
   url: string = 'http://localhost:8080/';
+  headers = {'Content-type':'application/json',
+  'Access-Control-Allow-Origin': '*',
+};
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +24,7 @@ export class BookService {
    );
  }
 
- checkout(loggedInUser: User, book: Book): Observable<User> | null {
+ checkout(loggedInUser: User, book: Book): Observable<User> |null{
   let userJson = JSON.stringify(loggedInUser);
   if (loggedInUser) {
     return this.http.put(this.url + 'book/' + book.id + '/checkout', {body: userJson}).pipe(

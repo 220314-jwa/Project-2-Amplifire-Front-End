@@ -1,13 +1,9 @@
-<body>
-  <h1>{{title}}</h1> <!--interpolation binding-->
+
   <nav class="section"> 
-    <a routerlink="home">LibraryApp></a>
-      <a routerLink="library">Available Books</a>
-      
-      <a routerLink="mybooks" *ngIf="loggedInUser">My Books</a>
-     <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
+    <a routerLink="/home">LibraryApp</a> 
+    <span>📚</span>
+    <a routerLink="/books">Available Books</a> 
+    <a routerLink="/mybooks" *ngIf="loggedInUser">My Books</a>
+    <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
   </nav> 
-
-
-</body>
 <router-outlet></router-outlet>
