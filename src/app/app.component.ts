@@ -22,6 +22,7 @@ export class AppComponent {
   async getLoggedInUser() {
     let obj = await this.userServ.checkLogin();
     if (obj != null) this.loggedInUser = obj;
+    // this.loggedInUser = await this.userServ.checkLogin();
   }
 
 }
