@@ -13,6 +13,8 @@ import { BookSearchPipe } from './pipes/book-search.pipe';
 import { UserService } from './services/user.service';
 import { BookService } from './services/book.service';
 import { HomeComponent } from './components/home/home.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import { HomeComponent } from './components/home/home.component';
     BookComponent,
     BooksComponent,
     BookSearchPipe,
-    HomeComponent
+    HomeComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,
