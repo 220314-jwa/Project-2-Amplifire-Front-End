@@ -1,3 +1,44 @@
 div {
-  padding:.25em;
+  padding:0;
+  margin: 0;
+}
+body{
+  display: flex;
+  justify-content: center;
+  width: 350px;
+  height: 450px;
+  align-items: center;  
+  border-radius: 35px;
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/105/706/514/manhattan-new-york-city-night-cityscape-4k-8k-wallpaper-preview.jpg");
+}
+.section{
+  display: flex;
+  justify-content: center;
+  box-shadow: 15px 15px 10px rgba(33, 45, 58, 0.3);
+  width:100%;
+  height:100%;
+  background-size: 100% 100%;
+  background-image: url("https://cdnb.artstation.com/p/assets/images/images/038/792/693/large/owen-russell-highresscreenshot00007.jpg?1624062733");
+  background-size: cover;
+}
+.section form .tbx{
+  width: 250px;
+  height: 40px;
+  outline:  none;
+  border: #fff;
+  font-size: 15px;
+}
+.section form.tbx::placeholder{
+  color: rgba(236, 231, 231);
+  font-size : 16px;
+}
+.section form .sub{
+  width: 250px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
+.username, .password{
+  color: #fff;
 }

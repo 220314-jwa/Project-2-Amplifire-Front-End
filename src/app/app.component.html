@@ -1,9 +1,9 @@
-
   <nav class="section"> 
-    <a routerLink="/home">LibraryApp</a> 
-    <span>📚</span>
-    <a routerLink="/books">Available Books</a> 
-    <a routerLink="/mybooks" *ngIf="loggedInUser">My Books</a>
-    <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
-  </nav> 
+   <a routerLink="/home">LibraryApp</a> 
+   <span>📚</span>
+   <a routerLink="/books">Available Books</a> 
+   <a routerLink="/mybooks" *ngIf="loggedInUser">My Books</a>
+   <a routerLink="/login">Login</a>
+   <!--<app-login (loginOrLogout)="getLoggedInUser()"></app-login> -->
+   </nav>
 <router-outlet></router-outlet>

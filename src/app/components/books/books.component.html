@@ -1,5 +1,6 @@
-<main class="section">
-    <h1>Available Books</h1>
+<main class="section2">
+    <div class="bookS">
+        <h1>Available Books</h1>
     <p *ngIf="!loggedInUser">Log in to checkout books!</p>
     <div>
         <label for="bookSearch">Search Books: </label>
@@ -13,4 +14,5 @@
     <ng-template #noBooks>
         <p>There are no books available right now, check again later!</p>
     </ng-template>
+    </div>
 </main>

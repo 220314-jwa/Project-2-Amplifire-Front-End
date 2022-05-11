@@ -4,18 +4,25 @@ body {
     color: black;
     font-family: 'Comic Sans MS', sans-serif;
     font-size: 16pt;
+    min-height: 80vh; 
 }
 
 /* class selector - selects all elements with the specified class.
-classes, like IDs, are defined by you. */
+classes, like IDs, are defined by you.
+
+background-color: lightsteelblue;
+
+*/
 .section {
     background-color: lightsteelblue;
 }
+
 
 nav {
     display:flex;
     justify-content: space-around;
     width:100%;
+    height:100%;
 }
 
 /* general child selector (a li that is somewhere within 
@@ -45,8 +52,10 @@ nav a:hover {
     "li li li li"
     / 30% 5% 30% 30%;
     width: 100%;
+    height: 100%;
 }
 
+/*
 #loginWindow {
     padding-top:1.25rem;
     padding-right:2rem;
@@ -54,6 +63,7 @@ nav a:hover {
     justify-content: right;
     width:100%;
 }
+*/
 
 input, select {
     border: 2px solid #cc8258;
@@ -61,6 +71,7 @@ input, select {
     margin: 0rem 1rem;
 }
 
+/* login */
 button {
     background-color: lightgray;
     color:white;
@@ -100,3 +111,4 @@ table, th, td {
 th, td {
     padding: 1rem;
 }
+
