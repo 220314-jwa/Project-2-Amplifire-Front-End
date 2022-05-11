@@ -25,4 +25,8 @@ export class AppComponent {
     // this.loggedInUser = await this.userServ.checkLogin();
   }
 
+  navigateToMain():void{
+    this.getLoggedInUser();
+  }
+
 }
