@@ -1,4 +1,4 @@
-<main class="section2">
+
     
         <h1>Available Books</h1>
     <p *ngIf="!loggedInUser">Log in to checkout books!</p>
@@ -9,10 +9,10 @@
      <div class="books" *ngIf="books && books.length>0; else noBooks">
         
        
-        <app-book *ngFor="let eachBook of book | bookSearch:bookSearchText" [book]="eachBook"></app-book>
+        <app-book *ngFor="let eachBook of books | bookSearch:bookSearchText" [book]="eachBook"></app-book>
     </div> 
     <ng-template #noBooks>
         <p>There are no books available right now, check again later!</p>
     </ng-template>
    
-</main>
+

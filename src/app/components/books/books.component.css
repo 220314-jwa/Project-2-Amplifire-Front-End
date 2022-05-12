@@ -1,8 +1,11 @@
 .bookS,.section2{
-    min-height: 80vh;
+    display: grid;
+    grid-template: 
+    "div div div"
+    33% 33% 33%;
     width: 100%;
-    height: 100%;
 }
 h1,p{
     color: #fff;
 }
+

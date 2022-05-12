@@ -17,8 +17,9 @@ export class BooksComponent implements OnInit {
   constructor(private userServ: UserService, private bookServ: BookService) {}
 
   ngOnInit(): void {
-    this.getBooks();
+   this.getBooks();
     this.getLoggedInUser();
+    
   }
   async getLoggedInUser() {
     this.loggedInUser = await this.userServ.checkLogin();
