@@ -1,8 +1,9 @@
-import { Users } from './../../models/users';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup , FormControl, Validators} from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-registration',
@@ -12,11 +13,15 @@ import { UserService } from 'src/app/services/user.service';
 export class UserRegistrationComponent implements OnInit {
 
   userRegistrationForm!: FormGroup;
-  user = {username:'',
+  user= {username:'',
     password:'',
     fullName:''
   };
+  @Output() submit: EventEmitter<any> = new EventEmitter();
   validMessage: string='';
+
+  newUser: any;
+
 
   constructor(private userServ: UserService) { }
 
@@ -29,6 +34,12 @@ export class UserRegistrationComponent implements OnInit {
     });
   }
 
-  submitRegistration(){}
+  async submitRegistration():Promise<void> {
+  
+    this.newUser = await this.userServ.submitRegistration(this.user);
+   
+    
+
+  }
 
 }

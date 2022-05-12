@@ -19,7 +19,7 @@ export class BookSearchPipe implements PipeTransform {
     for (let book of books) {
       if (book.title.toLowerCase().includes(searchText)
       ||    book.description.toLowerCase().includes(searchText)
-      ||    book.genre.toLowerCase().includes(searchText)) {
+      ||    book.genre.name.toLowerCase().includes(searchText)) {
             filteredBooks.push(book);
           }
       }

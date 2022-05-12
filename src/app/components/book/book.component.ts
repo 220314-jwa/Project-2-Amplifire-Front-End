@@ -10,12 +10,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  @Input() book: Book;
+  @Input() book!: Book;
   loggedInUser: any;
 
   constructor(private UserServ: UserService, private bookServ: BookService) {
-    this.book = new Book(1, "", "", "", "");
-    this.loggedInUser = new User(1, "", "", "", "", []); 
+    
    }
 
    ngOnInit(): void {
@@ -29,7 +28,7 @@ export class BookComponent implements OnInit {
        resp => {
         if(resp != null) 
          this.loggedInUser = resp;
-         this.book.status='Issued';
+         this.book.status.name='Issued';
        }
       
      );

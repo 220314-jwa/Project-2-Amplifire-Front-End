@@ -14,9 +14,9 @@ export class UserService {
 
   constructor() { }
 
-   async checkLogin(): Promise<User | undefined> {
+   async checkLogin(): Promise<any> {
      let userId = sessionStorage.getItem('Auth-Token');
-     let httpResp = await fetch(this.url + 'user/' + userId, {headers:this.headers});
+     let httpResp = await fetch(this.url + 'users/' + userId, {headers:this.headers});
      if (httpResp && httpResp.status === 200) {
          return await httpResp.json();
       } else {
@@ -42,4 +42,7 @@ export class UserService {
    }
     return undefined;
    }
+
+   submitRegistration(user:any){}
+  
 }

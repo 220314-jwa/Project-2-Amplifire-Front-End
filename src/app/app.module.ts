@@ -1,3 +1,4 @@
+import { BookFormComponent } from './components/book-form/book-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,8 @@ import { BookService } from './services/book.service';
 import { HomeComponent } from './components/home/home.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     BooksComponent,
     BookSearchPipe,
     HomeComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    AdminComponent,
+    BookFormComponent
+   
+    
   ],
   imports: [
     BrowserModule,

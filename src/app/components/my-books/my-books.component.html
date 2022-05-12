@@ -4,6 +4,7 @@
     <p id="messageBox"></p>
     <div *ngIf="loggedInUser; else notLoggedIn">
         <p *ngIf="!loggedInUser.books || loggedInUser.books.length===0">You don't have any books! You should checkout some. :)</p>
+
         <app-book *ngFor="let eachBook of loggedInUser.books" [book]="eachBook"></app-book>
     </div> 
     <ng-template #notLoggedIn>
