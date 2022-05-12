@@ -9,24 +9,22 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'Library';
-  loggedInUser: User;
+  loggedInUser!: User;
 
   constructor(private userServ: UserService) {
-    this.loggedInUser = new User(1, "", "", "", "", []);
+    
   }
 
    ngOnInit(): void {
      this.getLoggedInUser();
+
+     
    }
 
   async getLoggedInUser() {
-    let obj = await this.userServ.checkLogin();
-    if (obj != null) this.loggedInUser = obj;
+  this.loggedInUser  = await this.userServ.checkLogin();
+     
     // this.loggedInUser = await this.userServ.checkLogin();
-  }
-
-  navigateToMain():void{
-    this.getLoggedInUser();
   }
 
 }

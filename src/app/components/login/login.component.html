@@ -1,19 +1,16 @@
-<main class="section">
-    <body>
-        <ng-container *ngIf="!loggedInUser; else logout">
-            <div>
-                <label for="usernameInput" class="username">Username: </label>
-                <input [(ngModel)]="credentials.username" class="tbx" type="text" id="usernameInput" placeholder="username">
-                <label for="passwordInput" class="password">Password: </label>
-                <input [(ngModel)]="credentials.password"  class="tbx" type="password" id="passwordInput" placeholder="password"> 
-                <button class='sub' (click)="logIn()" type="button"  id="logInBtn">Log In</button>
-            </div>
-        </ng-container>
-        <ng-template #logout>
-            <div>
-                {{ loggedInUser.firstName }}
-                <button (click)="logOut()" type="button" id="logOutBtn">Log Out</button>
-            </div>
-        </ng-template>
-    </body>
-</main>
+
+ <ng-container *ngIf="!loggedInUser; else logout">
+    <div>
+        <label for="usernameInput">Username: </label>
+        <input [(ngModel)]="credentials.username" type="text" id="usernameInput">
+        <label for="passwordInput">Password: </label>
+        <input [(ngModel)]="credentials.password" type="password" id="passwordInput"> 
+        <button (click)="logIn()" type="button" id="logInBtn">Log In</button>
+    </div>
+</ng-container>
+<ng-template #logout>
+    <div>
+        {{" Welcome "+ loggedInUser.fullName }}
+        <button (click)="logOut()" type="button" id="logOutBtn">Log Out</button>
+    </div>
+</ng-template>

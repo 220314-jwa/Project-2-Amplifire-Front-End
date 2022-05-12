@@ -9,15 +9,18 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./my-books.component.css']
 })
 export class MyBooksComponent implements OnInit {
-  loggedInUser: any;
+  loggedInUser!: User;
 
   constructor(private userServ: UserService) { }
 
   ngOnInit(): void {
     this.getLoggedInUser();
+    
+    
   }
   async getLoggedInUser() {
     this.loggedInUser = await this.userServ.checkLogin();
   }
 
+  
 }

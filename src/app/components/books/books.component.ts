@@ -1,3 +1,4 @@
+import { Books } from './../../models/books';
 import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
 import { User } from 'src/app/models/user';
@@ -9,17 +10,16 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  book: Book[];
-  loggedInUser: any;
+  books!: Book[];
+  loggedInUser!: User;
   bookSearchText: string = '';
 
-  constructor(private userServ: UserService, private bookServ: BookService) { 
-    this.book = [];
-  }
+  constructor(private userServ: UserService, private bookServ: BookService) {}
 
   ngOnInit(): void {
-    this.getBooks();
+   this.getBooks();
     this.getLoggedInUser();
+    
   }
   async getLoggedInUser() {
     this.loggedInUser = await this.userServ.checkLogin();
@@ -31,7 +31,7 @@ export class BooksComponent implements OnInit {
   //   // in a callback function.
      this.bookServ.getBooks().subscribe(
        resp => {
-         this.book = resp;
+         this.books = resp;
        }
      );
    }

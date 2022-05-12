@@ -1,3 +1,4 @@
+import { BookFormComponent } from './components/book-form/book-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,10 @@ import { BookSearchPipe } from './pipes/book-search.pipe';
 import { UserService } from './services/user.service';
 import { BookService } from './services/book.service';
 import { HomeComponent } from './components/home/home.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 @NgModule({
   declarations: [
@@ -22,13 +27,19 @@ import { HomeComponent } from './components/home/home.component';
     BookComponent,
     BooksComponent,
     BookSearchPipe,
-    HomeComponent
+    HomeComponent,
+    UserRegistrationComponent,
+    AdminComponent,
+    BookFormComponent
+   
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,
