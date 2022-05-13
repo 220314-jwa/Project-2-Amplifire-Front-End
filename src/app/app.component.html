@@ -3,10 +3,9 @@
    <span>📚</span>
    <a routerLink="/books">Available Books</a> 
    <a routerLink="/mybooks" *ngIf="loggedInUser">My Books</a>
-  
-   <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
+   <a routerLink="/login">Login </a>
+   <!--<app-login (loginOrLogout)="getLoggedInUser()"></app-login> -->
    </nav>
    <div routerLink="**" *ngIf="!loggedInUser">
-    <app-user-registration></app-user-registration>
    </div>
 <router-outlet></router-outlet>
