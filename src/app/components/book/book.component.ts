@@ -11,7 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class BookComponent implements OnInit {
   @Input() book!: Book;
-  loggedInUser: any;
+  loggedInUser!: User;
+  dateExample: Date = new Date();
 
   constructor(private UserServ: UserService, private bookServ: BookService) {
     
@@ -30,7 +31,6 @@ export class BookComponent implements OnInit {
          this.loggedInUser = resp;
          this.book.status.name='Issued';
        }
-      
      );
    }
 

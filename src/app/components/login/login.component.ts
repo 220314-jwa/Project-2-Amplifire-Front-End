@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.loggedInUser = await this.userServ.logIn(this.credentials);
     // fires the custom event
     this.loginOrLogout.emit();
+    location.href = "/home";
   }
 
   logOut(): void {
