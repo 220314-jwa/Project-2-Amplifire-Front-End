@@ -6,7 +6,7 @@
   
    <app-login (loginOrLogout)="getLoggedInUser()"></app-login> 
    </nav>
-   <div routerLink="**" *ngIf="!loggedInUser">
-    <app-user-registration></app-user-registration>
+   <div *ngIf="!loggedInUser">
+   
    </div>
 <router-outlet></router-outlet>

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup , FormControl, Validators} from '@angular/forms';
@@ -34,11 +35,18 @@ export class UserRegistrationComponent implements OnInit {
     });
   }
 
-  async submitRegistration():Promise<void> {
+  submitRegistration(){
+    if (this.userRegistrationForm.valid){
+      this.validMessage= "Thank you " + this.user.fullName +"."+ "You have been successfully registerd"
+    this.userServ.addUser(this.userRegistrationForm.value).subscribe( data => {
+      this.userRegistrationForm.reset(); 
+       return true;
+    },
+     
+     
+    )
   
-    this.newUser = await this.userServ.submitRegistration(this.user);
-   
-    
+    }else{ this.validMessage="please fillout form properly"}
 
   }
 

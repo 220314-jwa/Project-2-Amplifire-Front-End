@@ -27,7 +27,8 @@ export class BookService {
  checkout(loggedInUser: User, book: Book): Observable<User> |null{
   
   if (loggedInUser) {
-    return this.http.put(this.url + 'books/' + book.id + '/checkout', loggedInUser).pipe(
+    
+    return this.http.put(`${this.url } books/ ${book.id }+ /checkout`, loggedInUser).pipe(
       map(resp => resp as User)
     );
   }

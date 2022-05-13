@@ -19,12 +19,14 @@ export class BookComponent implements OnInit {
 
    ngOnInit(): void {
      this.getLoggedInUser();
+     this.book
    }
+   
    async getLoggedInUser() {
      this.loggedInUser = await this.UserServ.checkLogin();
    }
    checkout(): void {
-     this.bookServ.checkout(this.loggedInUser, this.book)?.subscribe(
+     this.bookServ.checkout(this.loggedInUser, this.book)!.subscribe(
        resp => {
         if(resp != null) 
          this.loggedInUser = resp;

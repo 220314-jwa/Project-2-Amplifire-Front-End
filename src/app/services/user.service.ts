@@ -1,5 +1,9 @@
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/models/user';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +16,7 @@ export class UserService {
 };
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
    async checkLogin(): Promise<any> {
      let userId = sessionStorage.getItem('Auth-Token');
@@ -43,6 +47,11 @@ export class UserService {
     return undefined;
    }
 
-   submitRegistration(user:any){}
+   addUser(user:any):Observable <User>{
+     return this.http.post(this.url+'users',user,{headers:this.headers}).pipe(
+       map(resp=> resp as User)
+     );
+
+   }
   
 }
